@@ -13,6 +13,7 @@ jobs:
     - name: Checkout Repo A Fork
       uses: actions/checkout@v2
       with:
+        fetch-depth: 1
         path: 'ao-bin-dumps'
 
     - name: Check for Changes in localization.json
