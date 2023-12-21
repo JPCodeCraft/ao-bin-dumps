@@ -16,7 +16,6 @@ jobs:
         path: 'ao-bin-dumps'
 
     - name: Check for Changes in localization.json
-      id: check_changes
       run: |
         cd ao-bin-dumps
         git fetch origin master
@@ -25,7 +24,6 @@ jobs:
           echo "CHANGES_DETECTED=true" >> $GITHUB_ENV
         else
           echo "CHANGES_DETECTED=false" >> $GITHUB_ENV
-      working-directory: ./ao-bin-dumps
 
     - name: Setup jq
       if: env.CHANGES_DETECTED == 'true'
