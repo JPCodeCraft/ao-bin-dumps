@@ -1,6 +1,7 @@
 name: Update Localization Files
 
-on:
+on: 
+  workflow_dispatch:
   schedule:
     - cron: '0 */12 * * *'  # Runs twice a day
 
