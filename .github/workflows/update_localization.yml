@@ -61,6 +61,7 @@ jobs:
     - name: Copy Processed JSON Files to Repo B
       if: env.CHANGES_DETECTED == 'true'
       run: |
+        cp ao-bin-dumps/localization.json AlbionLocalization/
         cp ao-bin-dumps/items_localization.json AlbionLocalization/
         cp ao-bin-dumps/shopcategory_localization.json AlbionLocalization/
         cp ao-bin-dumps/shopsubcategory_localization.json AlbionLocalization/
