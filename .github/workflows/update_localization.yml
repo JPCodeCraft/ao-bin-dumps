@@ -20,7 +20,7 @@ jobs:
     - name: Sparse Checkout localization.json
       run: |
         cd ao-bin-dumps
-        git sparse-checkout init --cone
+        git sparse-checkout init --no-cone
         git sparse-checkout set localization.json
         
     - name: Check for Changes in localization.json
