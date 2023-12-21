@@ -25,6 +25,7 @@ jobs:
           echo "CHANGES_DETECTED=true" >> $GITHUB_ENV
         else
           echo "CHANGES_DETECTED=false" >> $GITHUB_ENV
+        fi
 
     - name: Setup jq
       if: env.CHANGES_DETECTED == 'true'
