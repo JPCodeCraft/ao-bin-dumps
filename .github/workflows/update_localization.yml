@@ -28,13 +28,13 @@ jobs:
         cd ao-bin-dumps
         git fetch origin master
         # For testing, we're setting CHANGES_DETECTED to true directly
-        echo "CHANGES_DETECTED=true" >> $GITHUB_ENV
-        # CHANGED_FILES=$(git diff --name-only FETCH_HEAD $(git rev-parse HEAD) | grep 'localization.json' || true)
-        # if [ -n "$CHANGED_FILES" ]; then
-        #   echo "CHANGES_DETECTED=true" >> $GITHUB_ENV
-        # else
-        #   echo "CHANGES_DETECTED=false" >> $GITHUB_ENV
-        # fi
+        # echo "CHANGES_DETECTED=true" >> $GITHUB_ENV
+        CHANGED_FILES=$(git diff --name-only FETCH_HEAD $(git rev-parse HEAD) | grep 'localization.json' || true)
+        if [ -n "$CHANGED_FILES" ]; then
+          echo "CHANGES_DETECTED=true" >> $GITHUB_ENV
+        else
+          echo "CHANGES_DETECTED=false" >> $GITHUB_ENV
+        fi
 
     - name: Setup jq
       if: env.CHANGES_DETECTED == 'true'
